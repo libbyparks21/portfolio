@@ -1,0 +1,140 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: monospace;
+    align-items: center;
+    background-color: black;
+}
+
+.logo-image {
+    width: 15%;
+    height: 15%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    color: wheat;
+    text-align: center;
+}
+
+.logo{
+    color: wheat;
+    align-items: center;
+    text-align: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    max-width: 75%;
+    margin: 0 auto;
+    background-color: black;
+    align-items: center;
+    text-align: center;
+}
+
+.video-wrapper {
+    position: relative;
+}
+
+.grid-container video {
+    width: 100%;
+    height: auto;
+}
+
+.award-image {
+    position: absolute;
+    top: -5%;
+    right: -3%;
+    width: 30%; /* Adjust size as needed */
+    height: auto;
+    z-index: 2;
+    background-color: transparent;
+}
+
+/* Button styling */
+.button {
+    padding: 15px 10px;
+    font-size: 16px;
+    color: white; /* White text */
+    background-color: black; /* Black background */
+    border: 1px solid white; /* White outline */
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none; /* Remove underline for links */
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 30px; /* Add padding above the buttons */
+    padding-bottom: 50px;
+}
+
+/* Hover effect */
+.button:hover {
+    background-color: white; /* Invert colors on hover */
+    color: black; /* Black text on white background */
+}
+
+.menu-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.menu-btn div {
+    background-color: white;
+    height: 4px;
+    width: 100%;
+}
+
+/* Menu container styling */
+.menu {
+    display: none;
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    width: 200px;
+    background-color: black;
+    padding-top: 60px;
+    z-index: 1000;
+}
+
+/* Links inside the menu */
+.menu a {
+    display: block;
+    padding: 15px;
+    color: white;
+    text-decoration: none;
+    text-align: left;
+    font-size: 18px;
+}
+
+/* Hover effect on menu links */
+.menu a:hover {
+    background-color: #555;
+}
+
+/* Overlay background when menu is open */
+.menu-open .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
