@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="style.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Grid</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Grid container to create 4 rows, 2 columns */
+        .grid-container {
+            display: grid;
+            grid-template-columns: 50% 50%; /* Two equal-width columns */
+            grid-template-rows: repeat(4, 1fr); /* Four equal-height rows */
+            height: 100vh;
+            width: 100%;
+            gap: 10px; /* Small gap between rows */
+        }
+
+        /* Style for each video and its description */
+        .video {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Video should auto-play and fill its grid cell */
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensure the video fits well */
+        }
+
+        /* Description area */
+        .description {
+            color: white;
+            padding: 2%;
+            display: flex;
+            align-items: center; /* Vertically center the text */
+            justify-content: center; /* Horizontally center the text */
+            font-size: .9em;
+            text-align: left;
+        }
+
+        .p{
+            text-align: left;
+        }
+
+        /* Responsive layout */
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr; /* Stack the grid in one column on smaller screens */
+                grid-template-rows: repeat(8, 1fr); /* Eight rows */
+            }
+        }
+    </style>
+
+    <div class="logo"> 
+        <img src="./goofy-logo-lp.png" alt="goofy-logo-lp" class="logo-image">
+    </div>   
+
+</head>
+<body>
+
+    <!-- Grid container for 4 rows and 2 columns -->
+    <div class="grid-container">
+        <!-- Row 1 -->
+        <div class="video">
+            <video src="skiddies.mp4" autoplay muted loop></video>
+        </div>
+        <div class="description">
+            <p>Tire Marks Effect  <br> Created in Houdini FX for "Student Accomplice" - September 2023 <br> <br>
+                
+                Utilized the curve that represents the path of the car (Extracted from the car’s alembic file).
+                
+                Generated UV'd geometry where the tires would mark the ground.
+                
+                Adjusted the darkness of the skid marks based on the car's curvature, making them darker on turns and lighter on straightaways.
+                
+                Offered adjustable parameters for tire width, tire color, and skid mark length for a customizable effect. <br> <br>
+                
+                (Houdini Vex Code, Renderman Textures, USD Pipeline, File Caching)
+            
+        </div>
+
+        <!-- Row 2 -->
+        <div class="video">
+            <video src="bear-lake.mp4" autoplay muted loop></video>
+        </div>
+        <div class="description">
+            <p>Architectural Visualization and Animation <br>
+                Created in Blender - August 2024 <br><br>
+
+                Given the plans of a house, illustrated what the house would look like when it is done. 
+                Simple textures, studio lighting, and circular camera movement. <br> <br>
+
+                (3D Basics of Blender)
+            </p>
+        </div>
+
+        <!-- Row 3 -->
+        <div class="video">
+            <video src="truck.mp4" autoplay muted loop></video>
+        </div>
+        <div class="description">
+            <p>
+                Smoke Simulation and Composition <br>
+                Created in Houdini and Composited in Nuke - March 2024 <br> <br>
+
+                Houdini sim, rendered in Karma and composited in Nuke.
+
+                Shaped with a lot of disturbance, turbulence, and collisions with a rough model of the truck.  <br> <br>
+
+                (Houdini: Smoke simulation, Fluid simulation, Lighting and Rendering in Karma.)
+
+                (Nuke: Basic composition, Camera tracking, Roto, Masking.)
+
+            </p>
+        </div>
+
+        <!-- Row 4 -->
+        <div class="video">
+            <video src="trees.mp4" autoplay muted loop></video>
+        </div>
+        <div class="description">
+            <p>
+                Tree Simulation and Modeling <br>
+                Created in Speedtree for Houdini Layout - November 2023 <br> <br>
+                
+                Populated city with trees that matched the style, simulated them to reflect that it is a calm autumn day. And kept it LIGHTWEIGHT. Trees had to react to an explosion.
+                Modeled and designed 8 different trees with unique "wonky" feeling.
+                Added a calm, physically accurate leaf and branch simulation.
+                Added them to the current layout using the USD Pipeline. 
+                Optimized layout by assuring that only the trees in focus will move and drop leaves, the rest will be static instanced copies for background feel. Created a  simulation for the trees reacting to the explosion. <br> <br>
+                (SpeedTree, File-Caching, USD)
+            </p>
+        </div>
+
+        <!-- Row 5 -->
+        <div class="video">
+            <video src="sith.mp4" autoplay muted loop></video>
+        </div>
+        <div class="description">
+            <p>
+                Sith to Jedi Composition <br>
+                Created in Unreal's Metahuman Creator and Adobe After Effects - April 2024<br> <br>
+
+                I began this personal project by 3D scanning my face and importing the 
+                data into Unreal Engine's Metahuman Creator, which generated a character 
+                based on my features. I customized the character's color and skin tone to 
+                match my own. After rendering an idle animation of my face, I used Adobe 
+                After Effects for motion tracking and rotoscoping. This allowed me to add 
+                color adjustments to make the eyes glow and to map a hood that moved with 
+                the character's head movements. Finally, I applied blue and red lighting 
+                to emphasize the character's transformation from Sith to Jedi. <br> <br>
+                (Unreal Metahumans, After Effects Compositing Tools)
+                
+                ​</p>
+        </div>
+
+        <!-- Row 6 -->
+        <div class="video">
+            <video src="softball.mp4" autoplay muted loop></video>
+        </div>
+        <div class="description">
+            <p>CG Softball Composition <br>
+                Created in Maya, Substance Painter, Houdini, and Nuke -  September 2021 <br> <br>
+                Procedurally modeled each lace to wrap around a deformed figure eight using Maya. 
+                Textured in Substance Painter, then pulled into Houdini for lighting and rendering. Composited into a still image using Nuke. <br> <br>
+                (Procedural Modeling, Substance Basic Texturing, Compositing Shadows)
+            </p>
+        </div>
+    </div>
+</body>
+</html>
