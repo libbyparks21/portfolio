@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="style.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image and Description</title>
+    <style>
+        /* Basic reset */
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Container for the row */
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 2fr; /* 1/3 image, 2/3 description */
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 100%;
+        }
+
+        /* Style for the image */
+        .image {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center; /* Center content vertically */
+            justify-content: center; /* Center content horizontally */
+        }
+
+        img {
+            width: 100%;
+            height: auto; /* Maintain aspect ratio */       
+        }
+
+        /* Style for the description */
+        .description {
+            padding: 2vw; /* Padding using viewport width units for responsiveness */
+            font-size: 1.5vw; /* Font size relative to viewport width */
+            overflow-y: auto; /* Allow scrolling if text overflows */
+            color: white;
+            align-items: center;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr; /* Stack columns vertically on smaller screens */
+                grid-template-rows: auto auto; /* Two rows */
+                align-items: center;
+            }
+            .description {
+                font-size: 3vw; /* Adjust font size for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Image Column -->
+        <div class="image">
+            <img src="redd-dress.jpg" alt="Description of the image">
+        </div>
+        <!-- Description Column -->
+        <div class="description">
+            <p>
+                I'm Libby! <br> <br>
+                I recently graduated with a B.S. in Computer Science with an Emphasis in Animation from Brigham Young University. 
+                My professional journey demonstrates a keen interest in various facets of film production, animation, and visual effects.
+                I'm passionate about problem-solving and infusing creativity into my work. I am a former collegiate javelin thrower, 
+                a big fan of peach rings, Diet Mountain Dew, and the Kansas City Chiefs. 
+                I'm eager to explore how my skills can contribute to your upcoming projects! Please connect with me and share your valuable feedback. 
+            </p>
+        </div>
+    </div>
+</body>
+</html>
