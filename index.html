@@ -11,20 +11,21 @@
     <body>
         <div class="grid-container">
             <div class="video-wrapper">
-                <video src="bear-lake.mp4" autoplay muted loop></video>
+                <video src="dewsim-out.mp4" autoplay muted loop></video>
             </div>
             <div class="video-wrapper">
                 <video src="skiddies.mp4" autoplay muted loop></video>
                 <img src="rookie-circle.png" alt="Overlay" class="award-image">
             </div>
             <div class="video-wrapper">
-                <video src="truck.mp4" autoplay muted loop></video>
+                <video src="bear-lake.mp4" autoplay muted loop></video>
             </div>
             <div class="video-wrapper">
                 <video src="trees.mp4" autoplay muted loop></video>
+                <img src="rookie-circle.png" alt="Overlay" class="award-image">
             </div>
             <div class="video-wrapper">
-                <video src="sith.mp4" autoplay muted loop></video>
+                <video src="truck.mp4" autoplay muted loop></video>
             </div>
             <div class="video-wrapper">
                 <video src="softball.mp4" autoplay muted loop></video>
@@ -68,6 +69,28 @@
                 menu.style.display = 'none';
                 overlay.style.display = 'none';
             };
+        </script>
+         <script>
+            const video = document.getElementById('hoverVideo');
+    
+            video.addEventListener('loadedmetadata', () => {
+                const quarterTime = video.duration / 4;
+    
+                video.addEventListener('timeupdate', () => {
+                    if (video.currentTime >= quarterTime) {
+                        video.pause(); // Pause at 1/4 mark
+                    }
+                });
+    
+                video.addEventListener('mouseenter', () => {
+                    video.play(); // Play when mouse hovers over
+                });
+    
+                video.addEventListener('mouseleave', () => {
+                    video.pause(); // Pause when mouse leaves
+                    video.currentTime = 0; // Reset to start
+                });
+            });
         </script>
     </body>
 </html>

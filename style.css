@@ -33,8 +33,16 @@
     text-align: center;
 }
 
+/**.video-wrapper {
+    position: relative;
+}**/
 .video-wrapper {
     position: relative;
+    max-width: 600px; /* Adjust as needed */
+    overflow: hidden;
+}
+video {
+    width: 100%; /* Adjust as needed */
 }
 
 .grid-container video {
