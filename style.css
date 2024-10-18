@@ -54,9 +54,9 @@ video {
 
 .award-image {
     position: absolute;
-    top: -5%;
-    right: -3%;
-    width: 30%; /* Adjust size as needed */
+    top: 2%;
+    right: 2%;
+    width: 20%; /* Adjust size as needed */
     height: auto;
     z-index: 2;
     background-color: transparent;
@@ -101,3 +101,15 @@ video {
     color: green; /* Change color on hover */
 }
 
+/* Styling for the footer logo at the bottom */
+.footer-logo {
+    text-align: center;
+    margin-top: 20px; /* Adds spacing between the grid and the image */
+    padding-bottom: 20px; /* Adjusts space at the bottom of the page */
+}
+
+/* Adjust the size of the image if needed */
+.footer-logo img {
+    max-width: 25%; /* Change to the desired width */
+    height: auto;
+}
