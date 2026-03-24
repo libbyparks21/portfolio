@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Libby Parkinson</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <h1>Libby Parkinson</h1>
+    <div class="tabs">
+      <span class="tab-link active" onclick="showTab('video', event)">Video</span>
+      <span class="tab-link" onclick="showTab('sports', event)">Sports</span>
+      <span class="tab-link" onclick="showTab('about', event)">About</span>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- VIDEO TAB -->
+    <section id="video" class="tab active">
+      <div class="content video-grid">
+
+        <div class="video-item">
+          <iframe src="https://player.vimeo.com/video/123456789?autoplay=1&muted=1&loop=1&background=1"></iframe>
+          <div class="video-overlay"><h3>Project Title 1</h3></div>
+        </div>
+
+        <div class="video-item">
+          <iframe src="https://player.vimeo.com/video/123456789?autoplay=1&muted=1&loop=1&background=1"></iframe>
+          <div class="video-overlay"><h3>Project Title 2</h3></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SPORTS TAB -->
+    <section id="sports" class="tab">
+      <div class="content video-grid">
+
+        <div class="video-item">
+          <iframe src="https://player.vimeo.com/video/123456789?autoplay=1&muted=1&loop=1&background=1"></iframe>
+          <div class="video-overlay"><h3>Sports Edit</h3></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ABOUT TAB -->
+    <section id="about" class="tab">
+      <div class="content about">
+        <p>
+          Video editor and motion designer focused on sports storytelling,
+          broadcast, and cinematic content.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
