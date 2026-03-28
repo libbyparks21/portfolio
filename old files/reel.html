@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="style.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centered Video</title>
+    <style>
+        /* Basic reset for margins and paddings */
+        * {
+            margin-top: 2%;
+            box-sizing: border-box;
+        }
+
+        /* Style the body to center content and take up the full height */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center; /* Align video to the top */
+            background-color: #000;
+        }
+
+        /* Style to ensure the video stays responsive */
+        video {
+            max-width: 80%;
+            max-height: 80%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Video element -->
+    <video controls>
+        <source src="lp-reel-9.5.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</body>
+</html>
