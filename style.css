@@ -4,6 +4,27 @@
     font-family: monospace;
     align-items: center;
     background-color: black; 
+    text-decoration: none;
+}
+
+/*For Iphone Browser Adjustments*/
+@media (max-width: 600px) {
+  /* 1️⃣ Make the grid single column */
+  .grid-container {
+    grid-template-columns: 1fr !important;/* one column */
+    max-width: 95%; /* a little wider on phones */
+    gap: 10px; /* optional, spacing between videos */
+  }
+  /* 2️⃣ Shrink the logo */
+  .logo-image {
+    max-width: 90px !important; /* smaller logo */
+    height: auto;
+  }
+
+  /* 3️⃣ Shrink video captions */
+  .video-caption {
+    font-size: small ! important; /* smaller text under videos */
+  }
 }
 
 .logo-image {
@@ -69,11 +90,6 @@ video {
     max-width: 150px; /* Adjust logo size as needed */
     height: auto;
 }
-@media (max-width: 600px) {
-  .logo-image {
-    width: 90px; /* smaller on phones */
-  }
-}
 
 /* Styling for the footer logo at the bottom */
 .footer-logo {
@@ -118,7 +134,7 @@ video, iframe {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 101%;
   height: 101%;
 
   display: flex;
@@ -129,23 +145,52 @@ video, iframe {
   background: rgba(0, 0, 0, 0.7);
   opacity: 0;
 
+  z-index: 3;
   transition: opacity 0.3s ease;
 }
 
-/* Show on hover */
-.video-container:hover .video-overlay {
-  opacity: 1;
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* keeps your 16:9 ratio */
 }
 
-/* Title styling */
-.video-overlay h3 {
-  background: none;
-  font-family: monospace;
-  font-weight: bold;
-  font-weight: 700;
+/* BOTH thumbnail + iframe must fill container */
+.thumbnail,
+.video-embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 101%;
+  height: 101%;
+}
+
+/* Thumbnail on top initially */
+.thumbnail {
+  object-fit: cover;
+  z-index: 2;
+  transition: opacity 0.3s ease;
+}
+
+.video-caption {
+  margin-top: 8px;
+  font-size: 14px;
   color: white;
-  font-size: large;
-  margin: 0;
+  text-align: center;
+  text-decoration: none;
+  font-family: monospace; /* matches your vibe */
+  font-style: normal;
+}
+
+/* Video underneath */
+.video-embed {
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* On hover → reveal video */
+.video-container:hover .thumbnail {
+  opacity: 0;
 }
 
 /*ADDING TABS*/
