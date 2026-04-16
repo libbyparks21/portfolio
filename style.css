@@ -25,6 +25,7 @@
 
 .video-wrapper {
   position: relative;
+  width: 100%;
 }
 
 /* optional full width spans */
@@ -60,11 +61,17 @@
 /* =========================
    VIDEO CONTAINER (CORE FIX)
 ========================= */
+
 .video-container {
   position: relative;
   width: 100%;
-  padding-top: 56.25%; /* 16:9 ratio */
+  aspect-ratio: 16 / 9;
   overflow: hidden;
+  background: black;
+}
+
+.video-wrapper.film .video-container {
+  aspect-ratio: 2.39 / 1;
 }
 
 /* =========================
@@ -112,6 +119,9 @@
 /* IMPORTANT: remove global iframe styling conflicts */
 iframe {
   border: none;
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 /* =========================

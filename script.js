@@ -35,3 +35,4 @@ document.querySelectorAll('.video-container').forEach(container => {
     iframe.contentWindow?.postMessage?.('{"method":"pause"}', '*');
   });
 });
+
