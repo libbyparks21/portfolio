@@ -1,231 +1,190 @@
+/* =========================
+   BASE RESET
+========================= */
 * {
-    margin: 0;
-    padding: 0;
-    font-family: monospace;
-    align-items: center;
-    background-color: black; 
-    text-decoration: none;
+  margin: 0;
+  padding: 0;
+  font-family: monospace;
+  text-decoration: none;
+  box-sizing: border-box;
+  background-color: black;
 }
 
-/*For Iphone Browser Adjustments*/
-@media (max-width: 600px) {
-  /* 1️⃣ Make the grid single column */
-  .grid-container {
-    grid-template-columns: 1fr !important;/* one column */
-    max-width: 95%; /* a little wider on phones */
-    gap: 10px; /* optional, spacing between videos */
-  }
-  /* 2️⃣ Shrink the logo */
-  .logo-image {
-    max-width: 90px !important; /* smaller logo */
-    height: auto;
-  }
-
-  /* 3️⃣ Shrink video captions */
-  .video-caption {
-    font-size: small ! important; /* smaller text under videos */
-  }
-}
-
-.logo-image {
-    padding-top: 3%;
-    padding-bottom: 0%;
-    color: wheat;
-    text-align: center;
-}
-
-.logo{
-    color: wheat;
-    align-items: center;
-    text-align: center;
-}
-
+/* =========================
+   LAYOUT GRID
+========================= */
 .grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 10px;
-    max-width: 75%;
-    margin: 0 auto;
-    align-items: center;
-    text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  max-width: 75%;
+  margin: 0 auto;
+  align-items: center;
+  text-align: center;
 }
 
 .video-wrapper {
-    position: relative;
+  position: relative;
 }
 
+/* optional full width spans */
 .large {
-    grid-column: span 2; /* Spans across both columns */
-    width: 100%; /* Takes full width */
+  grid-column: span 2;
 }
 
-.small {
-    grid-column: span 1; /* Takes one column each */
+/* =========================
+   LOGO
+========================= */
+.logo {
+  text-align: center;
 }
 
-video {
-    width: 100%; /* Ensures the videos take up full width of their container */
-    height: auto;
-    display: block;
+.logo-image {
+  padding-top: 3%;
+  max-width: 150px;
+  height: auto;
 }
 
 .award-image {
-    position: absolute;
-    top: 2%;
-    right: 2%;
-    width: 20%; /* Adjust size as needed */
-    height: auto;
-    z-index: 2;
-    background-color: transparent;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  width: 60px;   /* fixed size = stable */
+  height: auto;
+
+  z-index: 5;
+  pointer-events: none;
 }
 
-.button-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding-top: 30px; /* Add padding above the buttons */
-    padding-bottom: 50px;
-}
-.logo img {
-    max-width: 150px; /* Adjust logo size as needed */
-    height: auto;
+/* =========================
+   VIDEO CONTAINER (CORE FIX)
+========================= */
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 ratio */
+  overflow: hidden;
 }
 
-/* Styling for the footer logo at the bottom */
-.footer-logo {
-    text-align: center;
-    margin-top: 20px; /* Adds spacing between the grid and the image */
-    padding-bottom: 20px; /* Adjusts space at the bottom of the page */
-}
-
-/* Adjust the size of the image if needed */
-.footer-logo img {
-    max-width: 25%; /* Change to the desired width */
-    height: auto;
-}
-/* vimeo plugin*/
-video, iframe {
+/* =========================
+   THUMBNAIL
+========================= */
+.thumbnail {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  pointer-events: none;
+
+  z-index: 2;
+  transition: opacity 0.25s ease;
 }
 
-/*ADDED FOR HOVER THING */
-
-.video-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-/* Make iframe fill container */
-.video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-/* Overlay sits on top */
-.video-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 101%;
-  height: 101%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-shadow: none !important;
-
-  background: rgba(0, 0, 0, 0.7);
+/* fade thumbnail on hover */
+.video-container:hover .thumbnail {
   opacity: 0;
-
-  z-index: 3;
-  transition: opacity 0.3s ease;
 }
 
-.video-container {
-  position: relative;
-  width: 100%;
-  padding-top: 56.25%; /* keeps your 16:9 ratio */
-}
-
-/* BOTH thumbnail + iframe must fill container */
-.thumbnail,
+/* =========================
+   IFRAME (UNIFIED VIMEO + YOUTUBE)
+========================= */
 .video-embed {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 101%;
-  height: 101%;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+
+  border: none;
+  z-index: 1;
+
+  opacity: 0;
+  transition: opacity 0.25s ease;
+
+  pointer-events: none; /* keeps click-through to link */
 }
 
-/* Thumbnail on top initially */
-.thumbnail {
-  object-fit: cover;
-  z-index: 2;
-  transition: opacity 0.3s ease;
+/* fade video in on hover */
+.video-container:hover .video-embed {
+  opacity: 1;
 }
 
+/* IMPORTANT: remove global iframe styling conflicts */
+iframe {
+  border: none;
+}
+
+/* =========================
+   CAPTIONS
+========================= */
 .video-caption {
   margin-top: 8px;
   font-size: 14px;
   color: white;
   text-align: center;
-  text-decoration: none;
-  font-family: monospace; /* matches your vibe */
-  font-style: normal;
 }
 
-/* Video underneath */
-.video-embed {
-  z-index: 1;
-  pointer-events: none;
-}
+/* =========================
+   OVERLAY (optional hover text)
+========================= */
+.video-overlay {
+  position: absolute;
+  inset: 0;
 
-/* On hover → reveal video */
-.video-container:hover .thumbnail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0, 0, 0, 0.7);
   opacity: 0;
+
+  z-index: 3;
+  transition: opacity 0.2s ease;
 }
 
-/*ADDING TABS*/
+.video-container:hover .video-overlay {
+  opacity: 1;
+}
 
+/* 3D videos must NOT use iframe styling */
+.video-container video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* =========================
+   TABS
+========================= */
 .tabs {
   display: flex;
   justify-content: center;
   gap: 25px;
-  margin-top: 10px;
-  margin-bottom: 30px;
+  margin: 10px 0 30px;
 }
 
-/* minimal text style */
 .tab-link {
-  font-family: monospace;
   font-size: 14px;
   letter-spacing: 1px;
   text-transform: lowercase;
   color: rgb(178, 108, 243);
-
   cursor: pointer;
+
   opacity: 0.4;
   transition: opacity 0.3s ease;
 }
 
-/* active tab = just slightly stronger */
-.tab-link.active {
-  opacity: 1;
-  font-weight: bolder;
-}
-
-/* hover = subtle */
 .tab-link:hover {
   opacity: 0.7;
 }
+
+.tab-link.active {
+  opacity: 1;
+  font-weight: bold;
+}
+
 .tab {
   display: none;
 }
@@ -234,7 +193,33 @@ video, iframe {
   display: block;
 }
 
+/* =========================
+   FOOTER
+========================= */
 .footer {
   width: 100%;
-  height: 30px; /* adjust spacing */
+  height: 30px;
+}
+
+/* =========================
+   MOBILE (iPhone fix)
+========================= */
+@media (max-width: 600px) {
+
+  .grid-container {
+    grid-template-columns: 1fr;
+    max-width: 95%;
+  }
+
+  .logo-image {
+    max-width: 90px;
+  }
+
+  .video-caption {
+    font-size: 12px;
+  }
+
+  .tab-link {
+    font-size: 12px;
+  }
 }
